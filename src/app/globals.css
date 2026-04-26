@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #020617;
+    --foreground: #f1f5f9;
+  }
+}
+
+.nav-link {
+  @apply relative text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors;
+}
+
+.nav-link::after {
+  @apply content-[''] absolute left-0 -bottom-1 w-0 h-0.5 bg-slate-900 dark:bg-white transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.section {
+  @apply py-20 px-4 md:px-8 lg:px-16;
+}
+
+.card {
+  @apply bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+}
+
+.btn-primary {
+  @apply bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg;
+}
+
+.btn-outline {
+  @apply border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900;
+}
